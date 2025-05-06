@@ -5,6 +5,9 @@ from langgraph.graph import StateGraph, END
 from langgraph.prebuilt import ToolNode, tools_condition
 from langgraph.graph.message import add_messages
 from typing import Annotated, TypedDict
+import load_tokens, os
+
+
 
 
 def stream_graph_updates(user_input: str, config):
@@ -100,7 +103,7 @@ if __name__ == "__main__":
     # one turn and extra
     try:
         events = graph.stream(
-            {"messages": [{"role": "user", "content": '请搜索骆宾王的咏鹅'}]},
+            {"messages": [{"role": "user", "content": '请搜索骆宾王的咏鹅的原文'}]},
             config,
             stream_mode="values",
         )
